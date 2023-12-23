@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from engine.grammar import Parser, CParser
+from .engine.grammar import Parser, CParser
 
 from razdel import tokenize
 from pymorphy2 import MorphAnalyzer
