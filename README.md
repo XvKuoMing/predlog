@@ -10,7 +10,7 @@ Use the following code:
 ```
 %%capture
 !apt install subversion
-!svn export https://github.com/XvKuoMing/handytable/trunk/predlog
+!svn export https://github.com/XvKuoMing/predlog/trunk/predlog
 
 from predlog.simpliciter import simplify
 ```
