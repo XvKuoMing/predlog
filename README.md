@@ -9,6 +9,9 @@ Use the following code:
 
 ```
 %%capture
+
+!pip install razdel
+!pip install pymorphy2
 !apt install subversion
 !svn export https://github.com/XvKuoMing/predlog/trunk/predlog
 
