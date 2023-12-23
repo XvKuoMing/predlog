@@ -1,5 +1,6 @@
 # predlog
 language parsers
+<br />
 demo code lies in predlog.simpliciters_demo.ipynb
 
 # download
@@ -11,5 +12,5 @@ Use the following code:
 !apt install subversion
 !svn export https://github.com/XvKuoMing/handytable/trunk/predlog
 
-from predlog.simpliciters import simplify
+from predlog.simpliciter import simplify
 ```
