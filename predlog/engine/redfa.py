@@ -1,4 +1,4 @@
-from utils.graphs_builder import regex2dfa
+from .utils.graphs_builder import regex2dfa
 from copy import deepcopy
 
 
