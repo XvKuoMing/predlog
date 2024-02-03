@@ -49,7 +49,7 @@ class ReDFA:
         return current_state in self.__final_states  # check if such end is allowed
 
     def draw(self, 
-             figzise: tuple = (15, 10), dpi: int = 60,
+             figsize: tuple = (15, 10), dpi: int = 100,
              edge_color: str = "black", width: int = 1, linewidths: int =1,
              node_size: int = 500, node_color: str = 'pink', alpha: float = 0.9, font_color: str = 'red') -> None:
         """Draws directed graph"""
@@ -65,7 +65,7 @@ class ReDFA:
         G = nx.DiGraph()
         G.add_edges_from(edges)
         pos = nx.spring_layout(G)
-        plt.figure(figsize=figzise, dpi=dpi)
+        plt.figure(figsize=figsize, dpi=dpi)
         nx.draw(
             G, pos, edge_color=edge_color, width=width, linewidths=linewidths,
             node_size=node_size, node_color=node_color, alpha=alpha,
