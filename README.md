@@ -9,8 +9,7 @@ Use the following code:
 ```
 %%capture
 
-!apt install subversion
-!svn export https://github.com/XvKuoMing/predlog/trunk/predlog
+!git clone [https://github.com/XvKuoMing/predlog/trunk/predlog](https://github.com/XvKuoMing/predlog.git)
 
 from predlog.engine.redfa import ReDFA
 ```
