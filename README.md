@@ -2,8 +2,8 @@
 language parsers
 <br />
 
-#Quick start
-Take a look at this (demo)[https://colab.research.google.com/drive/10viaqo8DlgBnDXDKp0aAEm5_ySVjxEM4?usp=sharing]
+# Quick start
+Take a look at this [demo](https://colab.research.google.com/drive/10viaqo8DlgBnDXDKp0aAEm5_ySVjxEM4?usp=sharing)
 
 # download
 
