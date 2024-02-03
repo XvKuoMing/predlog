@@ -37,14 +37,10 @@ def patterns2dfa(patterns: List[List[Union[str, List[str]]]],
     else:
         start_from = float(start_state.split(':')[0])
 
-        # if start_state not in graph.keys():
-    #   graph[start_state] = {}
-
     branches = []  # additional branches that should be considered after execution
+    incre = 0
     for n, pattern in enumerate(patterns):
-        # thread_id += n
-        # thread = string.ascii_uppercase[thread_id + n]
-        thread = get_thread(thread_id + n)
+        thread = get_thread(thread_id + n + incre)
 
         current_state = start_state
 
@@ -61,9 +57,9 @@ def patterns2dfa(patterns: List[List[Union[str, List[str]]]],
                 graph[current_state] = {}
 
             if isinstance(element, list):
+                incre += len(element) - 1
                 globals_ends = graph.pop('<END>')
                 if quant in ['?', '*']:
-                    # print(generated_so_far + pattern[state_n+1:])
                     branches.append(generated_so_far + pattern[state_n + 1:])
                 rep = False
                 if quant in ['*', '+']:
@@ -81,11 +77,6 @@ def patterns2dfa(patterns: List[List[Union[str, List[str]]]],
                                          graph=graph,
                                          start_state=start,
                                          thread_id=thread_id + n + i)
-                # graph['<END>'] = [*globals_ends,*graph.pop('<END>')]
-                # можно попробовать поступить так:
-                # мы создаем новый паттерн: pattern[state+1:] -- tail
-                # и каждый из концов element ставим как начало для pattern[state+1:]
-                # а из этой функции мы просто уходим (break)
                 broken = True
                 break
 
