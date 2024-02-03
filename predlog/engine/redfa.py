@@ -56,7 +56,7 @@ class ReDFA:
         edges = []
         edge_labels = {}
         
-        for s1, transit in dfa.graph.items():
+        for s1, transit in self.__transitions.items():
           for label, s2 in transit.items():
             edge = [s1, s2]
             edges.append(edge)
