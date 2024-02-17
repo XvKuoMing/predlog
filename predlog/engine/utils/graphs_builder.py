@@ -40,9 +40,6 @@ def patterns2dfa(patterns: List[List[str]],
         except ValueError:
             start_from = float(_sta)
 
-    protected_start = {}  # elements that must not be manipulated
-    if cycling and start_state in graph.keys():
-        protected_start = graph.pop(start_state)
 
     execute_ambiguous = []
     for n, pattern in enumerate(patterns):
@@ -170,7 +167,6 @@ def patterns2dfa(patterns: List[List[str]],
             if end_st not in graph.keys():
                 graph[end_st] = {}
             graph[end_st] = {**graph[end_st], **graph[start_state]}
-        graph[start_state] = {**protected_start, **graph[start_state]}
     return graph
 
 
