@@ -1,4 +1,4 @@
-from predlog.engine.grouper import Grouper
+from predlog.predlog.engine.grouper import Grouper
 import string
 
 
