@@ -2,6 +2,14 @@ from predlog.predlog.engine.utils.graphs_builder import patterns2dfa
 from predlog.predlog.engine.utils.lexers import relex
 from copy import deepcopy
 from typing import Optional, Callable,  List, Union
+from warnings import warn
+
+
+try:
+    import matplotlib.pyplot as plt
+    import networkx as nx
+except ModuleNotFoundError:
+    warn("To use draw method of ReDFA install metplotlib and networkx")
 
 
 class ReDFA:
@@ -73,6 +81,37 @@ class ReDFA:
     def findall(self, text: Union[str, list[str]]) -> List[slice]:
         """Given text, returns all matched slices"""
         return self.__find(text=text, only_first=False)
+
+    def draw(self, 
+             figsize: tuple = (15, 10), dpi: int = 100,
+             edge_color: str = "black", width: int = 1, linewidths: int =1,
+             node_size: int = 500, node_color: str = 'pink', alpha: float = 0.9, font_color: str = 'red') -> None:
+        """Draws directed graph"""
+        edges = []
+        edge_labels = {}
+        
+        for s1, transit in self.__transitions.items():
+          for label, s2 in transit.items():
+            edge = [s1, s2]
+            edges.append(edge)
+            edge_labels[tuple(edge)] = label
+        
+        G = nx.DiGraph()
+        G.add_edges_from(edges)
+        pos = nx.spring_layout(G)
+        plt.figure(figsize=figsize, dpi=dpi)
+        nx.draw(
+            G, pos, edge_color=edge_color, width=width, linewidths=linewidths,
+            node_size=node_size, node_color=node_color, alpha=alpha,
+            labels={node: node for node in G.nodes()}
+        )
+        nx.draw_networkx_edge_labels(
+            G, pos,
+            edge_labels=edge_labels,
+            font_color=font_color
+        )
+        plt.axis('off')
+        plt.show()
 
 
 class ReCapturer(ReDFA):
