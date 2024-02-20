@@ -9,7 +9,21 @@ try:
     morph = MorphAnalyzer()
 
 except ModuleNotFoundError:
-    warn('russian language parsers is disabled, please install pymorphy2 and razdel')
+    can_install = input("Russian language is dependent on 3-parties libs: pymorphy2, razdel. Do you want me to install them? (yes/no)")
+    if can_install.lower() == "yes":
+        import subprocess
+        import sys
+        
+        subprocess.check_call([sys.executable, "-m", "pip", "install", 'pymorphy2'])
+        subprocess.check_call([sys.executable, "-m", "pip", "install", 'razdel'])
+        
+        from pymorphy2 import MorphAnalyzer
+        from razdel import tokenize
+
+        morph = MorphAnalyzer()
+    else:
+        warn("Russian language parser is disabled, install pymorphy2, razdel and restart the program")
+
 
 
 simple_sub_conjs = ['который', 'что', 'где', 'если', 'чтобы', 'как', 'ибо', 'пока', 'словно']
