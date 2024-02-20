@@ -106,7 +106,7 @@ def patterns2dfa(patterns: List[List[str]],
                     for e in rends:
                         if e not in graph.keys():
                             graph[e] = {}
-                        if not bool(tail[0]):  # if tail was empty
+                        if start in graph['<END>']:  # if start is one of the possible end, then its repeated ends also are possible ends
                             graph['<END>'].append(e)
                         graph[e] = {**graph[e], **graph[start]}
                     end_counter = len(graph['<END>']) - end_counter
