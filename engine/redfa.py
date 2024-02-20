@@ -8,7 +8,19 @@ try:
     import matplotlib.pyplot as plt
     import networkx as nx
 except ModuleNotFoundError:
-    warn("To use draw method of ReDFA install metplotlib and networkx")
+    can_install = input("Draw method of ReDFA is dependent on metplotlib and networkx. Do you want me to install them? (yes/no)")
+    if can_install == "yes":
+        import subprocess
+        import sys
+
+        subprocess.check_call([sys.executable, "-m", "pip", "install", 'matplotlib'])
+        subprocess.check_call([sys.executable, "-m", "pip", "install", 'networkx'])
+
+        import matplotlib.pyplot as plt
+        import networkx as nx
+        
+    else:
+        warn("To use draw method of ReDFA install metplotlib, networkx and restart the program")
 
 
 
