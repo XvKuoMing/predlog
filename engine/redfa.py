@@ -1,5 +1,5 @@
-from engine.utils.graphs_builder import patterns2dfa
-from engine.utils.lexers import relex
+from predlog.engine.utils.graphs_builder import patterns2dfa
+from predlog.engine.utils.lexers import relex
 from copy import deepcopy
 from typing import Optional, Callable,  List, Union
 from warnings import warn
