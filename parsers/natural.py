@@ -64,6 +64,6 @@ def tokenizer(text: str) -> List[str]:
     return [t.text for t in tokenize(text)]
 
 
-parser = Grouper(rules=russian_grammar,
+russian_parser = Grouper(rules=russian_grammar,
                  tokenizer=tokenizer,
                  mirror=preprocessing)
