@@ -1,5 +1,5 @@
-from engine.utils.lexers import wordex
-from engine.redfa import ReDFA
+from predlog.engine.utils.lexers import wordex
+from predlog.engine.redfa import ReDFA
 from typing import Callable, Optional
 from warnings import warn
 
