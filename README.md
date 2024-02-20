@@ -19,5 +19,5 @@ git clone https://github.com/XvKuoMing/predlog.git
 ## Regular Expression as DFA
 
 ```
-from predlog.predlog.engine.redfa import ReDFA
+from predlog.engine.redfa import ReDFA
 ```
