@@ -1,5 +1,5 @@
 import unittest
-from redfa import ReDFA
+from predlog.engine.redfa import ReDFA
 
 
 class MyTestCase(unittest.TestCase):
