@@ -37,7 +37,7 @@ russian_grammar = """
 <PART> ::= <CONJ> #* PRTF #+ (<CONJ>|PNCT)| <PART> <CONJ> <PART>
 <TRANS> ::= <CONJ> #* GRND #+ (<CONJ>|PNCT) | <TRANS> <CONJ> <TRANS>
 
-// обхект субъект и глагол
+// объект субъект и глагол
 <OBJ> ::= (PRTF|NUMR|ADJF)* (NOUN|NPRO) | PREP (nomn_NOUN|nomn_NPRO|<OBJ>)
 <SUBJECT> ::= (PRTF|NUMR|ADJF)* (nomn_NOUN|nomn_NPRO) | <SUBJECT> <CONJ> <SUBJECT>
 <VERB> ::= (VERB|ADJS|COMP|PRTS|INFN|GRND|PRED|PRCL)+
