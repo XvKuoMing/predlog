@@ -62,8 +62,10 @@ russian_grammar = """
 """
 
 def preprocessing(token: str) -> str:
-    if token in [',', ';', ':', '«', '»']:
+    if token in [',', ';', ':', '«', '»', '!', '.']:
         return token
+    if token == '?':
+      return 'Q'
     if ' '.join(token.split('_')) in complex_sub_conjs+simple_sub_conjs:
         return 'SUB_CONJ'  # subordinate conjunction
     tag = morph.parse(token)[0].tag
