@@ -57,8 +57,8 @@ russian_grammar = """
 <EXCL> ::= #+ !
 // утвердительное предложение
 <AFFIRM> ::= (<SUBJECT>|PRCL|<NP>|<AP>|<VP>|<TRANS>|<PART>|<SUB_SENT>|<DS>)+ .?
-// предложение (соединение вопросительных предложений с утв может происходит в конце)
-<SEN> ::= <AFFIRM> (<CONJ> <AFFIRM>)* | <SEN> <CONJ> (<QUESTION>|<EXCL>) 
+// утвердительные предложения мы можем связывать в цепочку
+<SEN> ::= <AFFIRM> (<CONJ> <AFFIRM>)* 
 """
 
 def preprocessing(token: str) -> str:
